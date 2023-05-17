@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Domain\OrderHistory\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantOrderApp.Application\RestaurantOrderApp.Application.csproj" />
+    <ProjectReference Include="..\RestaurantOrderApp.Domain\RestaurantOrderApp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
