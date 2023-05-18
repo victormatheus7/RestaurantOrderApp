@@ -1,4 +1,5 @@
 using RestaurantOrderApp.Infrastructure;
+using RestaurantOrderApp.Application;
 
 namespace RestaurantOrderApp.API
 {
@@ -11,7 +12,8 @@ namespace RestaurantOrderApp.API
             // Add services to the container.
 
             builder.Services.AddControllers();
-            builder.Services.AddPersistence(builder.Configuration);
+            builder.Services.AddApplication();
+            builder.Services.AddInfrastructure(builder.Configuration);
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
