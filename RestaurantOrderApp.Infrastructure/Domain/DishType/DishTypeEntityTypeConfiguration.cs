@@ -9,8 +9,9 @@ namespace RestaurantOrderApp.Infrastructure.Domain.DishType
         {
             builder.ToTable("dish_types");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).HasColumnName("id");
+            builder.Property(x => x.Id).ValueGeneratedNever().HasColumnName("id");
             builder.Property(x => x.Name).HasMaxLength(50).HasColumnName("name");
+            builder.Property(x => x.ModifiedDate).HasColumnName("modified_date").HasDefaultValueSql("now()");
         }
     }
 }

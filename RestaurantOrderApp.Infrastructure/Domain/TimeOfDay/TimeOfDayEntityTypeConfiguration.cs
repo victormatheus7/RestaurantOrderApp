@@ -9,8 +9,9 @@ namespace RestaurantOrderApp.Infrastructure.Domain.TimeOfDay
         {
             builder.ToTable("times_of_day");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).HasColumnName("id");
+            builder.Property(x => x.Id).ValueGeneratedNever().HasColumnName("id");
             builder.Property(x => x.Name).HasMaxLength(50).HasColumnName("name");
+            builder.Property(x => x.ModifiedDate).HasColumnName("modified_date").HasDefaultValueSql("now()");
         }
     }
 }

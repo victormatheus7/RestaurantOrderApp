@@ -3,7 +3,7 @@ using RestaurantOrderApp.Domain.Entities;
 
 namespace RestaurantOrderApp.Infrastructure.Database
 {
-    public class RestaurantOrderContext : DbContext
+    public class RestaurantOrderAppContext : DbContext
     {
         public DbSet<TimeOfDay> TimesOfDay { get; set; }
 
@@ -13,11 +13,12 @@ namespace RestaurantOrderApp.Infrastructure.Database
 
         public DbSet<OrderPossibility> OrderPossibilities { get; set; }
 
-        public RestaurantOrderContext(DbContextOptions options) : base(options) 
+        public RestaurantOrderAppContext(DbContextOptions options) : base(options) 
         { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
     }

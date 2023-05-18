@@ -8,11 +8,11 @@ namespace RestaurantOrderApp.Infrastructure.Domain.OrderPossibility
         public void Configure(EntityTypeBuilder<RestaurantOrderApp.Domain.Entities.OrderPossibility> builder)
         {
             builder.ToTable("order_possibilities");
-            builder.HasKey(x => x.TimeOfDay.Id);
-            builder.HasKey(x => x.DishType.Id);
-            builder.Property(x => x.TimeOfDay.Id).HasColumnName("time_of_day_id");
-            builder.Property(x => x.DishType.Id).HasColumnName("dish_type_id");
-            builder.Property(x => x.Dish.Id).HasColumnName("dish_id");
+            builder.HasKey(x => new { x.TimeOfDayId, x.DishTypeId });
+            builder.Property(x => x.TimeOfDayId).ValueGeneratedNever().HasColumnName("time_of_day_id");
+            builder.Property(x => x.DishTypeId).ValueGeneratedNever().HasColumnName("dish_type_id");
+            builder.Property(x => x.DishId).HasColumnName("dish_id");
+            builder.Property(x => x.ModifiedDate).HasColumnName("modified_date").HasDefaultValueSql("now()");
         }
     }
 }

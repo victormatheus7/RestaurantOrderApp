@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using RestaurantOrderApp.Infrastructure.Database;
+
 namespace RestaurantOrderApp.API
 {
     public class Program
@@ -9,6 +12,12 @@ namespace RestaurantOrderApp.API
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddDbContext<RestaurantOrderAppContext>(options =>
+            {
+                options.UseNpgsql(builder.Configuration.GetConnectionString("Default"),
+                assembly => assembly.MigrationsAssembly(typeof(RestaurantOrderAppContext).Assembly.FullName));
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
