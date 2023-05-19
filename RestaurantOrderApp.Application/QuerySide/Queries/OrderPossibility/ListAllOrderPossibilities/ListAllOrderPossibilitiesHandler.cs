@@ -13,7 +13,7 @@ namespace RestaurantOrderApp.Application.QuerySide.Queries.OrderPossibility.List
 
         public async Task<List<Domain.Entities.OrderPossibility>> Handle(ListAllOrderPossibilitiesQuery request, CancellationToken cancellationToken)
         {
-            return await _orderPossibilityRepository.ListAllAsync();
+            return await _orderPossibilityRepository.ListAllAsync(request.TimeOfDayName?.Trim().ToLower());
         }
     }
 }

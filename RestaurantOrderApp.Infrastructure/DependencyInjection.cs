@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestaurantOrderApp.Domain.Interfaces;
 using RestaurantOrderApp.Infrastructure.Database;
+using RestaurantOrderApp.Infrastructure.Domain.Order;
 using RestaurantOrderApp.Infrastructure.Domain.OrderPossibility;
 
 namespace RestaurantOrderApp.Infrastructure
@@ -17,6 +18,7 @@ namespace RestaurantOrderApp.Infrastructure
                     a => a.MigrationsAssembly(typeof(RestaurantOrderAppContext).Assembly.FullName)), ServiceLifetime.Transient);
 
             services.AddScoped<IOrderPossibilityRepository, OrderPossibilityRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
             return services;
         }

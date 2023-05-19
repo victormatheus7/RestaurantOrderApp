@@ -13,6 +13,8 @@ namespace RestaurantOrderApp.Infrastructure.Database
 
         public DbSet<OrderPossibility> OrderPossibilities { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+
         public RestaurantOrderAppContext(DbContextOptions options) : base(options) 
         { }
 
