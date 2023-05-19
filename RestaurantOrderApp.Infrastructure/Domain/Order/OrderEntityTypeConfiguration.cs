@@ -15,6 +15,7 @@ namespace RestaurantOrderApp.Infrastructure.Domain.Order
             builder.Property(x => x.DishTypeId).HasColumnName("dish_type_id");
             builder.Property(x => x.DishId).HasColumnName("dish_id");
             builder.Property(x => x.ModifiedDate).HasColumnName("modified_date").HasDefaultValueSql("now()");
+            builder.Ignore(x => x.DishType);
         }
     }
 }

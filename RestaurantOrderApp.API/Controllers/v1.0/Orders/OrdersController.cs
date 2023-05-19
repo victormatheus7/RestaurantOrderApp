@@ -1,6 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantOrderApp.Application.CommandSide.Command.Order.AddOrders;
+using RestaurantOrderApp.Application.QuerySide.Queries.Order.GetOrders;
+using System.Net;
 
 namespace RestaurantOrderApp.API.Controllers.v1._0.Orders
 {
@@ -31,6 +33,26 @@ namespace RestaurantOrderApp.API.Controllers.v1._0.Orders
             }
 
             return Ok();
+        }
+
+        [Route("")]
+        [HttpGet]
+        [ProducesResponseType(typeof(IList<OrderViewModel>), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetOrders()
+        {
+            var result = OrderViewModel.ToViewModel(await _mediator.Send(new GetOrdersQuery()));
+
+            return Ok(result);
+        }
+
+        [Route("{id:guid}")]
+        [HttpGet]
+        [ProducesResponseType(typeof(IList<OrderViewModel>), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetOrders([FromRoute]Guid id)
+        {
+            var result = OrderViewModel.ToViewModel(await _mediator.Send(new GetOrdersQuery(id)));
+
+            return Ok(result);
         }
     }
 }

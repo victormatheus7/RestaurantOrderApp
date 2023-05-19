@@ -4,6 +4,6 @@ namespace RestaurantOrderApp.Domain.Interfaces
 {
     public interface IOrderPossibilityRepository
     {
-        Task<List<OrderPossibility>> ListAllAsync(string timeOfDayName = null);
+        Task<IList<OrderPossibility>> ListAsync(string timeOfDayName = null);
     }
 }

@@ -4,6 +4,8 @@ namespace RestaurantOrderApp.Domain.Interfaces
 {
     public interface IOrderRepository
     {
-        Task SaveOrders(IList<Order> orders);
+        Task SaveAsync(IList<Order> orders);
+
+        Task<IList<Order>> ListAsync(Guid? id = null);
     }
 }

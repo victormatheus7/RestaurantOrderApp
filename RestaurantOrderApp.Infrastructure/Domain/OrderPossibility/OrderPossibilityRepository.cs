@@ -13,7 +13,7 @@ namespace RestaurantOrderApp.Infrastructure.Domain.OrderPossibility
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<List<RestaurantOrderApp.Domain.Entities.OrderPossibility>> ListAllAsync(string timeOfDayName)
+        public async Task<IList<RestaurantOrderApp.Domain.Entities.OrderPossibility>> ListAsync(string timeOfDayName)
         {
             var orderPossibilities = (
                 from op in _context.OrderPossibilities
@@ -21,11 +21,7 @@ namespace RestaurantOrderApp.Infrastructure.Domain.OrderPossibility
                 join dt in _context.DishTypes on op.DishTypeId equals dt.Id
                 join d in _context.Dishes on op.DishId equals d.Id
                 where td.Name == timeOfDayName || timeOfDayName == null
-                select new RestaurantOrderApp.Domain.Entities.OrderPossibility(
-                    new RestaurantOrderApp.Domain.Entities.TimeOfDay(td.Id, td.Name),
-                    new RestaurantOrderApp.Domain.Entities.DishType(dt.Id, dt.Name),
-                    new RestaurantOrderApp.Domain.Entities.Dish(d.Id, d.Name)
-                )
+                select new RestaurantOrderApp.Domain.Entities.OrderPossibility(td, dt, d)
             );
 
             return await orderPossibilities.ToListAsync();
