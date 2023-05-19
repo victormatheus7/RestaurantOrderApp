@@ -17,12 +17,12 @@
         }
 
         public int TimeOfDayId { get; }
-        public TimeOfDay TimeOfDay { get; }
+        public TimeOfDay TimeOfDay { get; private set; }
 
         public int DishTypeId { get; }
-        public DishType DishType { get; }
+        public DishType DishType { get; private set; }
 
         public int DishId { get; }
-        public Dish Dish { get; }
+        public Dish Dish { get; private set; }
     }
 }
