@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrderApp.API", "R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrderApp.Domain", "RestaurantOrderApp.Domain\RestaurantOrderApp.Domain.csproj", "{2C77563D-E84B-4862-988B-A4933F236BB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrderApp.Application", "RestaurantOrderApp.Application\RestaurantOrderApp.Application.csproj", "{22C275B3-746E-418F-BE28-D5F09A4BCC76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrderApp.Application", "RestaurantOrderApp.Application\RestaurantOrderApp.Application.csproj", "{22C275B3-746E-418F-BE28-D5F09A4BCC76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrderApp.Infrastructure", "RestaurantOrderApp.Infrastructure\RestaurantOrderApp.Infrastructure.csproj", "{18844FE6-78C7-4FF0-8639-68C646E23918}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantOrderApp.Infrastructure", "RestaurantOrderApp.Infrastructure\RestaurantOrderApp.Infrastructure.csproj", "{18844FE6-78C7-4FF0-8639-68C646E23918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantOrderApp.UnitTests", "RestaurantOrderApp.UnitTests\RestaurantOrderApp.UnitTests.csproj", "{68BBAA91-7A9B-4BCB-99F0-1C538D23555A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{18844FE6-78C7-4FF0-8639-68C646E23918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18844FE6-78C7-4FF0-8639-68C646E23918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18844FE6-78C7-4FF0-8639-68C646E23918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68BBAA91-7A9B-4BCB-99F0-1C538D23555A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68BBAA91-7A9B-4BCB-99F0-1C538D23555A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68BBAA91-7A9B-4BCB-99F0-1C538D23555A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68BBAA91-7A9B-4BCB-99F0-1C538D23555A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
