@@ -2,8 +2,14 @@
 {
     public class DishType : BaseEntity
     {
-        public int Id { get; set; }
+        public DishType(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
 
-        public int Name { get; set; }
+        public int Id { get; }
+
+        public string Name { get; }
     }
 }

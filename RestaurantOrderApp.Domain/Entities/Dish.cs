@@ -2,8 +2,14 @@
 {
     public class Dish : BaseEntity
     {
-        public int Id { get; set; }
+        public Dish(int id, string name)
+        {
+            Id = id; 
+            Name = name;
+        }
 
-        public int Name { get; set; }
+        public int Id { get; }
+
+        public string Name { get; }
     }
 }

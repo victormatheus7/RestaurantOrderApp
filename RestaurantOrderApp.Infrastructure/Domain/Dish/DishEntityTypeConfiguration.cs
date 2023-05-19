@@ -12,6 +12,15 @@ namespace RestaurantOrderApp.Infrastructure.Domain.Dish
             builder.Property(x => x.Id).ValueGeneratedNever().HasColumnName("id");
             builder.Property(x => x.Name).HasMaxLength(50).HasColumnName("name");
             builder.Property(x => x.ModifiedDate).HasColumnName("modified_date").HasDefaultValueSql("now()");
+            builder.HasData(
+                new RestaurantOrderApp.Domain.Entities.Dish(0, "eggs"),
+                new RestaurantOrderApp.Domain.Entities.Dish(1, "Toast"),
+                new RestaurantOrderApp.Domain.Entities.Dish(2, "coffee"),
+                new RestaurantOrderApp.Domain.Entities.Dish(3, "steak"),
+                new RestaurantOrderApp.Domain.Entities.Dish(4, "potato"),
+                new RestaurantOrderApp.Domain.Entities.Dish(5, "wine"),
+                new RestaurantOrderApp.Domain.Entities.Dish(6, "cake")
+            );
         }
     }
 }

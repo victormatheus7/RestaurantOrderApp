@@ -12,6 +12,10 @@ namespace RestaurantOrderApp.Infrastructure.Domain.TimeOfDay
             builder.Property(x => x.Id).ValueGeneratedNever().HasColumnName("id");
             builder.Property(x => x.Name).HasMaxLength(50).HasColumnName("name");
             builder.Property(x => x.ModifiedDate).HasColumnName("modified_date").HasDefaultValueSql("now()");
+            builder.HasData(
+                new RestaurantOrderApp.Domain.Entities.TimeOfDay(0, "morning"),
+                new RestaurantOrderApp.Domain.Entities.TimeOfDay(1, "night")
+            );
         }
     }
 }

@@ -2,13 +2,27 @@
 {
     public class OrderPossibility : BaseEntity
     {
-        public int TimeOfDayId { get; set; }
-        public TimeOfDay TimeOfDay { get; set; }
+        public OrderPossibility(TimeOfDay timeOfDay, DishType dishType, Dish dish)
+        {
+            TimeOfDay = timeOfDay;
+            DishType = dishType;
+            Dish = dish;
+        }
 
-        public int DishTypeId { get; set; }
-        public DishType DishType { get; set; }
+        public OrderPossibility(int timeOfDayId, int dishTypeId, int dishId)
+        {
+            TimeOfDayId = timeOfDayId;
+            DishTypeId = dishTypeId;
+            DishId = dishId;
+        }
 
-        public int DishId { get; set; }
-        public Dish Dish { get; set; }
+        public int TimeOfDayId { get; }
+        public TimeOfDay TimeOfDay { get; }
+
+        public int DishTypeId { get; }
+        public DishType DishType { get; }
+
+        public int DishId { get; }
+        public Dish Dish { get; }
     }
 }
