@@ -50,7 +50,7 @@
             DishId = dishId;
         }
 
-        public Order(Guid id, int sequence, TimeOfDay timeOfDay, DishType dishType, Dish dish)
+        public Order(Guid id, int sequence, TimeOfDay timeOfDay, DishType dishType, Dish dish, DateTime modifiedDate) : base(modifiedDate)
         {
             Id = id;
             Sequence = sequence;

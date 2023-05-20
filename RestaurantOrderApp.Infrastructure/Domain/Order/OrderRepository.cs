@@ -33,7 +33,8 @@ namespace RestaurantOrderApp.Infrastructure.Domain.Order
                     o.Sequence,
                     td,
                     new RestaurantOrderApp.Domain.Entities.DishType(o.DishTypeId, null), 
-                    subd
+                    subd,
+                    o.ModifiedDate
                 )
             );
 
