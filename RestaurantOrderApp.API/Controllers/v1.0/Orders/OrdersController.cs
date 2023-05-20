@@ -21,7 +21,7 @@ namespace RestaurantOrderApp.API.Controllers.v1._0.Orders
 
         [Route("")]
         [HttpPost]
-        public async Task<IActionResult> AddOrders([FromBody]AddOrdersCommand command)
+        public async Task<IActionResult> AddOrder([FromBody]AddOrdersCommand command)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace RestaurantOrderApp.API.Controllers.v1._0.Orders
         [Route("{id:guid}")]
         [HttpGet]
         [ProducesResponseType(typeof(IList<OrderViewModel>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetOrders([FromRoute]Guid id)
+        public async Task<IActionResult> GetOrder([FromRoute]Guid id)
         {
             var result = OrderViewModel.ToViewModel(await _mediator.Send(new GetOrdersQuery(id)));
 

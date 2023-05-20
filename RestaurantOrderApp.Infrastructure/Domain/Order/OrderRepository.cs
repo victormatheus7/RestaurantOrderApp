@@ -24,13 +24,14 @@ namespace RestaurantOrderApp.Infrastructure.Domain.Order
         {
             var orders = (
                 from o in _context.Orders
+                join td in _context.TimesOfDay on o.TimeOfDayId equals td.Id
                 join d in _context.Dishes on o.DishId equals d.Id into lj
                 from subd in lj.DefaultIfEmpty() 
                 where o.Id == id || id == null
                 select new RestaurantOrderApp.Domain.Entities.Order(
                     o.Id, 
-                    o.Sequence, 
-                    null,
+                    o.Sequence,
+                    td,
                     new RestaurantOrderApp.Domain.Entities.DishType(o.DishTypeId, null), 
                     subd
                 )
