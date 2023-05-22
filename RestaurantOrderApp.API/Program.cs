@@ -21,9 +21,9 @@ namespace RestaurantOrderApp.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddCors(p => p.AddPolicy("RestaurantOrderApps", builder =>
+            builder.Services.AddCors(p => p.AddPolicy("RestaurantOrderApps", p =>
             {
-                builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+                p.WithOrigins(builder.Configuration.GetSection("FrontendAddress").Get<string>()).AllowAnyMethod().AllowAnyHeader();
             }));
 
             var app = builder.Build();

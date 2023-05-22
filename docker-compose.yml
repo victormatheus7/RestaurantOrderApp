@@ -11,7 +11,9 @@ services:
     build: .
     environment:
       - ConnectionStrings__Default=User ID=postgres;Password=mysecretpassword;Host=postgres-db;Port=5432;Database=restaurant_order;
+      - FrontendAddress=http://localhost:3000
     ports:
+      - "5000:443"
       - "5001:80"
     depends_on:
       - postgres-db
